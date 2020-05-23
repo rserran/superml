@@ -1,6 +1,6 @@
 [![CRAN status](https://www.r-pkg.org/badges/version/superml)](https://cran.r-project.org/package=superml)
 [![Build Status](https://travis-ci.org/saraswatmks/superml.svg?branch=master)](https://travis-ci.org/saraswatmks/superml)
-[![Downloads](http://cranlogs.r-pkg.org/badges/supermln)](http://www.r-pkg.org/pkg/superml)
+[![Downloads](http://cranlogs.r-pkg.org/badges/superml)](https://cran.r-project.org/package=superml)
 
 SuperML
 =======
@@ -14,6 +14,7 @@ You can install latest stable cran version using (recommended):
 
 ```r
 install.packages("superml")
+install.packages("superml", dependencies=TRUE) # to install all dependencies at once
 ```
 
 You can install superml from github with:
@@ -45,6 +46,12 @@ In addition, there are other useful functions to support modeling tasks such as:
 -   RandomSearchCV: For hyperparameter optimization
 -   kFoldMean: Target encoding
 -   smoothMean: Target encoding
+
+To compute text similarity, following functions are available:
+
+- bm_25: Computes bm25 distance
+- dot: Computes dot product between two vectors
+- dotmat: Computes dot product between vector & matrix
 
 Usage
 -----

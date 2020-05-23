@@ -13,12 +13,12 @@
 #' counts <- Counter(d, sort=TRUE, decreasing=TRUE)
 Counter <- function(data, sort=TRUE, decreasing=FALSE){
 
-    if(is.null(data)) stop("Please provide input data values")
-    if(is.data.frame(data) | is.matrix(data))
+    if (is.null(data)) stop("Please provide input data values")
+    if (is.data.frame(data) | is.matrix(data))
         stop("Please provide a vector of values
              instead of a data frame or matrix")
 
-    if(is.list(data)) data <- unlist(data)
+    if (is.list(data)) data <- unlist(data)
 
     op <- table(data) # vals
     n_op <- names(op)
@@ -50,15 +50,15 @@ testdata <- function(X, y, model=NA){
     if (!(inherits(X, c("data.table", "data.frame"))))
         stop("Your data format should be a data.table or data.frame.")
 
-    if(!(y %in% names(X)))
+    if (!(y %in% names(X)))
         stop(sprintf("%s not available in training data", y))
 
     # check in case target variable contains float values or NA values
-    if(any(is.na(X[[y]])))
+    if (any(is.na(X[[y]])))
         stop("The target variable contains NA values.")
 
-    if(model %in% c('lmtrainer')){
-        if(any(vapply(X, class, FUN.VALUE = character(1))
+    if (model %in% c('lmtrainer')) {
+        if (any(vapply(X, class, FUN.VALUE = character(1))
                %in% c("factor", "character")))
             stop(strwrap("There are factor or character values in the data set.
                          Please convert to numeric."))
@@ -76,11 +76,11 @@ testdata <- function(X, y, model=NA){
 #' @export
 check_package <- function(pkg) {
     if (!requireNamespace(pkg, quietly = TRUE)) {
-        warning(paste0("Require Package " , pkg,  "for this function to
-                       work. Installing it."))
+        warning(paste0("Require Package " , pkg,  " for this function to work. Installing it.\n"))
         utils::install.packages(pkg, repos = "http://cran.us.r-project.org")
         message("Finished installing.")
     }
 
 }
+
 
